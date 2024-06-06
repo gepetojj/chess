@@ -6,6 +6,10 @@ public class Board {
     private Piece[][] pieces;
 
     public Board(int rows, int cols) {
+        if (rows < 1 || cols < 1) {
+            throw new BoardException("O tabuleiro precisa de ao menos 1 linha e 1 coluna.");
+        }
+
         this.rows = rows;
         this.cols = cols;
         pieces = new Piece[rows][cols];
@@ -20,15 +24,43 @@ public class Board {
     }
 
     public Piece piece(int row, int col) {
+        if (!positionExists(row, col)) {
+            throw new BoardException("A posição solicitada não existe.");
+        }
+
         return pieces[row][col];
     }
 
     public Piece piece(Position pos) {
+        if (!positionExists(pos)) {
+            throw new BoardException("A posição solicitada não existe.");
+        }
+
         return pieces[pos.getRow()][pos.getCol()];
     }
 
     public void placePiece(Piece piece, Position pos) {
+        if (isPiecePlaced(pos)) {
+            throw new BoardException("Uma peça já ocupa a posição " + pos);
+        }
+
         pieces[pos.getRow()][pos.getCol()] = piece;
         piece.position = pos;
+    }
+
+    private boolean positionExists(int row, int col) {
+        return row >= 0 && row < rows && col >= 0 && col < cols;
+    }
+
+    public boolean positionExists(Position pos) {
+        return positionExists(pos.getRow(), pos.getCol());
+    }
+
+    public boolean isPiecePlaced(Position pos) {
+        if (!positionExists(pos)) {
+            throw new BoardException("A posição solicitada não existe.");
+        }
+
+        return piece(pos) != null;
     }
 }
