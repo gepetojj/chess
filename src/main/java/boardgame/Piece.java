@@ -12,4 +12,22 @@ public abstract class Piece {
     protected Board getBoard() {
         return board;
     }
+
+    public abstract boolean[][] possibleMoves();
+
+    public boolean possibleMove(Position pos) {
+        return possibleMoves()[pos.getRow()][pos.getCol()];
+    }
+
+    public boolean isThereAnyPossibleMove() {
+        boolean[][] mat = possibleMoves();
+        for (boolean[] booleans : mat) {
+            for (int j = 0; j < mat.length; j++) {
+                if (booleans[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
