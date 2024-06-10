@@ -32,10 +32,10 @@ public class UI {
         }
     }
 
-    public static void printMatch(ChessMatch chessMatch /*, List<ChessPiece> captured */) {
+    public static void printMatch(ChessMatch chessMatch , List<ChessPiece> captured) {
         printBoard(chessMatch.getPieces());
         System.out.println();
-        // printCapturedPieces(captured);
+        printCapturedPieces(captured);
         System.out.println();
         System.out.println("Turno : " + chessMatch.getTurn());
 //        if (!chessMatch.getCheckMate()) {
