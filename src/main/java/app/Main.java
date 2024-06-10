@@ -16,7 +16,7 @@ public class Main {
         while (true) {
             try {
                 UI.clearScreen();
-                UI.printBoard(match.getPieces());
+                UI.printMatch(match);
 
                 System.out.println();
                 System.out.print("Origem: ");
