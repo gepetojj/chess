@@ -36,6 +36,12 @@ public class Main {
                 if (captured != null) {
                     capturedPieces.add(captured);
                 }
+
+                if (match.getPromoted() != null) {
+                    System.out.print("Escolha uma peça para promoção (B/N/R/Q): ");
+                    String type = sc.nextLine();
+                    match.replacePromotedPiece(type);
+                }
             } catch (ChessException | InputMismatchException e) {
                 System.out.println(e.getMessage());
                 sc.nextLine();
