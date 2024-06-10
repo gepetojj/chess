@@ -3,7 +3,7 @@ package boardgame;
 public class Board {
     private final int rows;
     private final int cols;
-    private Piece[][] pieces;
+    private final Piece[][] pieces;
 
     public Board(int rows, int cols) {
         if (rows < 1 || cols < 1) {
