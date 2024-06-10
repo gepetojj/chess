@@ -41,10 +41,10 @@ public class UI {
         if (!chessMatch.getCheckMate()) {
         System.out.println("Aguardando jogador: " + chessMatch.getCurrentPlayer());
         if (chessMatch.getCheck()) {
-            System.out.println("CHEQUE!");
+            System.out.println("XEQUE!");
         }
         } else {
-            System.out.println("CHEQUE-MATE!");
+            System.out.println("XEQUE-MATE!");
             System.out.println("Vencedor: " + chessMatch.getCurrentPlayer());
         }
     }
